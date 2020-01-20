@@ -3,7 +3,9 @@ use std::process::Command;
 
 fn main() {
     lalrpop::Configuration::new()
-        .generate_in_source_tree()
+        .log_debug()
+        .set_in_dir("src/parser/")
+        .emit_rerun_directives(true)
         .process()
         .unwrap();
 
